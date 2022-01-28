@@ -1,3 +1,4 @@
+<?php include 'config.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+    <table>
+        <thead>
+            <td>ancien index</td>
+            <td>nouvel index</td>
+            <td>consumation</td>
+
+        </thead>
+    </table>
     <?php
         // $above_210 = (210 * 0.9451);
         // $tva_210 = $above_210 * 0.14;
@@ -17,30 +26,33 @@
         // echo $above_510;
         // echo "<br>";
 
+        
+
+        $total_initial = 0;
+
         $price = $_POST["price"];
         if($price <= 150){
             if($price<=100){
-                echo $price * 0.794;
+                $total_initial = $price * $tarifs["tr1"];
             }
             else{
-                echo (100*0.794) + (($price - 100)*0.883);
+                $total_initial = $trn1 + (($price - 100)*0.883);
             }
         }
         else{
             if($price <= 210){
-                echo $price * 0.9451;
+                $total_initial = $price * 0.9451;
             }
             elseif ($price <= 310) {
-                echo 198.471 + (($price - 210) * 1.0489);
+                $total_initial = $trn3 + (($price - 210) * 1.0489);
             }
             elseif($price <= 510){
-                echo 303.361 + (($price - 310) * 1.2915);
+                $total_initial = $trn3 + $trn4 + (($price - 310) * 1.2915);
             }
             else{
-                echo 561.661 + (($price - 510) * 1.4975);
+                $total_initial = $trn3 + $trn4 + $trn5 + (($price - 510) * 1.4975);
             }
         }
-        
     ?>
 </body>
 </html>

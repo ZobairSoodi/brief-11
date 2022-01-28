@@ -1,22 +1,12 @@
 <?php 
-    $s = "hi";
+    $tarifs = array("tr1"=>0.794, "tr2"=>0.883, "tr3"=>0.9451, "tr4"=> 1.0489, "tr5"=>1.2915, "tr6"=>1.4975);
+    $tva = 0.14;
+    $trn1 = 100 * $tarifs["tr1"];
+    $trn3 = 210 * $tarifs["tr3"];
+    $trn4 = 100 * $tarifs["tr4"];
+    $trn5 = 200 * $tarifs["tr5"];
+
+    function setTranche(){
+        return 
+    }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table border="1">
-        <tr>
-                <?php 
-                    echo "<td>" .$s . "</td>";
-                    
-                ?>
-        </tr>
-    </table>
-</body>
-</html>

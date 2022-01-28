@@ -8,19 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table border="1">
-        <thead>
-            <td>Facturé</td>
-            <td>P.U</td>
-            <td>Montant HT</td>
-            <td>Taux TVA</td>
-            <td>Montant Taxes</td>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
-    <?php
+<?php
         // $above_210 = (210 * 0.9451);
         // $tva_210 = $above_210 * 0.14;
         // $above_310 = $above_210 + (100 * 1.0489);
@@ -72,9 +60,24 @@
                 );
             }
         }
-        foreach ($myArray as $i) {
-            echo $i . "<br>";
-        }
+        
     ?>
+    <table border="1">
+        <thead>
+            <td>Facturé</td>
+            <td>P.U</td>
+            <td>Montant HT</td>
+            <td>Taux TVA</td>
+            <td>Montant Taxes</td>
+        </thead>
+        <tbody>
+            <?php 
+                foreach ($myArray as $i) {
+                    echo $i;
+                }
+            ?>
+        </tbody>
+    </table>
+    
 </body>
 </html>

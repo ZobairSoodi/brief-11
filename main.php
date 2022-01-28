@@ -8,13 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table border="1">
         <thead>
-            <td>ancien index</td>
-            <td>nouvel index</td>
-            <td>consumation</td>
-
+            <td>Facturé</td>
+            <td>P.U</td>
+            <td>Montant HT</td>
+            <td>Taux TVA</td>
+            <td>Montant Taxes</td>
         </thead>
+        <tbody>
+
+        </tbody>
     </table>
     <?php
         // $above_210 = (210 * 0.9451);
@@ -27,31 +31,49 @@
         // echo "<br>";
 
         
-
+        $myArray = array();
         $total_initial = 0;
-
+        
         $price = $_POST["price"];
         if($price <= 150){
             if($price<=100){
                 $total_initial = $price * $tarifs["tr1"];
+                array_push($myArray, setTranche($price, $tarifs["tr1"]));
             }
             else{
                 $total_initial = $trn1 + (($price - 100)*0.883);
+                array_push($myArray, setTranche(100, $tarifs["tr1"]),
+                    setTranche(($price-100), $tarifs["tr2"]));
+                
             }
         }
         else{
             if($price <= 210){
-                $total_initial = $price * 0.9451;
+                array_push($myArray, setTranche($price, $tarifs["tr3"]));
             }
             elseif ($price <= 310) {
-                $total_initial = $trn3 + (($price - 210) * 1.0489);
+                array_push($myArray, setTranche(210, $tarifs["tr3"]),
+                    setTranche(($price-210), $tarifs["tr4"])
+                );
             }
             elseif($price <= 510){
                 $total_initial = $trn3 + $trn4 + (($price - 310) * 1.2915);
+                array_push($myArray, setTranche(210, $tarifs["tr3"]),
+                    setTranche(100, $tarifs["tr4"]),
+                    setTranche(($price-310), $tarifs["tr5"])
+                );
             }
             else{
                 $total_initial = $trn3 + $trn4 + $trn5 + (($price - 510) * 1.4975);
+                array_push($myArray, setTranche(210, $tarifs["tr3"]),
+                    setTranche(100, $tarifs["tr4"]),
+                    setTranche(200, $tarifs["tr5"]),
+                    setTranche(($price-510), $tarifs["tr6"])
+                );
             }
+        }
+        foreach ($myArray as $i) {
+            echo $i . "<br>";
         }
     ?>
 </body>

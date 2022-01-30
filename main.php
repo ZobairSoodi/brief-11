@@ -23,8 +23,17 @@
         $total_initial = 0;
         $total_tva = 0;
         
+        
+        $cons1 = $_POST["cons1"];
+        $cons2 = $_POST["cons2"];
+        $price = $cons2 - $cons1;
+
+        if($price < 0){
+            header("Location: index.html");
+            ob_end_flush();
+            die();
+        }
         $cal = $_POST["cal"];
-        $price = $_POST["cons2"] - $_POST["cons1"];
         if($price <= 150){
             if($price<=100){
                 global $total_initial;

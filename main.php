@@ -11,13 +11,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="main.php" method="post">
-        <input type="text" name="cons1" style="border: solid 2px rebeccapurple;">
-        <input type="text" name="cons2" style="border: solid 2px rebeccapurple;">
-        <input type="radio" name="cal" id="cal1" value="small"><label for="cal1">small</label>
-        <input type="radio" name="cal" id="cal2" value="medium"><label for="cal2">medium</label>
-        <input type="radio" name="cal" id="cal3" value="large"><label for="cal3">large</label>
-        <input type="submit">
+    <form action="main.php" method="post">
+        <div id="index_div">
+            <label for="cons1">Ancien index : <input type="text" name="cons1" id="cons1" style="border: solid 2px rebeccapurple;"></label>
+            <label for="cons2">Nouvel index : <input type="text" name="cons2" id="cons2" style="border: solid 2px rebeccapurple;"></label>
+        </div>
+        <span>Index Type: </span>
+        <div id="radio_div">
+            <label for="cal1"><input type="radio" name="cal" id="cal1" value="small"> small</label>
+            <label for="cal2"><input type="radio" name="cal" id="cal2" value="medium"> medium</label>
+            <label for="cal3"><input type="radio" name="cal" id="cal3" value="large"> large</label>
+        </div>
+        <input class="btn btn-outline-light" type="submit">
     </form>
 <?php
         // $above_210 = (210 * 0.9451);
@@ -67,7 +72,7 @@
             }
             elseif ($price <= 310) {
                 global $total_initial;
-                $total_initial = $trn3 + (($price - 100)*$tarifs["tr4"]);
+                $total_initial = $trn3 + (($price - 210)*$tarifs["tr4"]);
                 array_push($myArray, setTranche(3, 210, $tarifs["tr3"]),
                     setTranche(4, ($price-210), $tarifs["tr4"])
                 );
@@ -125,19 +130,19 @@
                 if($cal == "small"){
                     global $total_initial;
                     $total_initial += 22.65;
-                    $total_tva += 22.65 * 0.14;
+                    $total_tva += (22.65 * 0.14);
                     echo setCal(22.65);
                 }   
                 elseif($cal == "medium"){
                     global $total_initial;
                     $total_initial += 37.05;
-                    $total_tva += 37.05 * 0.14;
+                    $total_tva += (37.05 * 0.14);
                     echo setCal(37.05);
                 }
                 elseif($cal == "large"){
                     global $total_initial;
                     $total_initial += 46.20;
-                    $total_tva += 46.20 * 0.14;
+                    $total_tva += (46.20 * 0.14);
                     echo setCal(46.20);
                 }
                 echo "<tr>

@@ -132,7 +132,7 @@
                     $total_initial += 22.65;
                     $total_tva += (22.65 * 0.14);
                     echo setCal(22.65);
-                }   
+                }
                 elseif($cal == "medium"){
                     global $total_initial;
                     $total_initial += 37.05;

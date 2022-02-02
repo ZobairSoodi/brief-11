@@ -31,22 +31,24 @@ $trnList = [
 ];
 
 $tva = 0.14;
-
+$total = 0;
 
 $index1 = $_POST["cons1"];
 $index2 = $_POST["cons2"];
 $cons = $index2 - $index1;
 
-function show($facture,$PU){
+function show($nbr,$facture,$PU){
     $montantHT = $facture * $PU;
     global $tva;
     $montantTaxes = $montantHT * $tva;
     echo "<tr>
+                <td>Tranche $nbr</td>
                 <td>$facture</td>
                 <td>$PU</td>
                 <td>$montantHT</td>
                 <td>$tva</td>
                 <td>$montantTaxes</td>
+                <td>$nbr الشطر</td>
             </tr>";
 }
 
@@ -54,35 +56,38 @@ function show($facture,$PU){
 
 <table class="table">
     <thead>
+        <td></td>
         <td>Facture</td>
         <td>PU</td>
         <td>Montant HT</td>
         <td>TAUX TVA</td>
         <td>Montant Taxes</td>
+        <td></td>
     </thead>
     <tbody>
         <?php
             if($cons <= 150){
                 if($cons <= 100){
-                    show($cons, $trnList[0]->PU);
+                    show(1, $cons, $trnList[0]->PU);
+                    
                 }
                 else{
-                    show(($cons - 100), $trnList[0]->PU);
-                    show($cons, $trnList[1]->PU);
+                    show(1, 100, $trnList[0]->PU);
+                    show(2, ($cons - 100), $trnList[1]->PU);
                 }
             }
             else{
                 if($cons <= 210){
-                    show($cons, $trnList[2]->PU);
+                    show(3, $cons, $trnList[2]->PU);
                 }
                 elseif($cons <= 310){
-                    show($cons, $trnList[3]->PU);
+                    show(4, $cons, $trnList[3]->PU);
                 }
                 elseif($cons <= 510){
-                    show($cons, $trnList[4]->PU);
+                    show(5, $cons, $trnList[4]->PU);
                 }
-                elseif($cons <= 310){
-                    show($cons, $trnList[5]->PU);
+                elseif($cons > 510){
+                    show(6, $cons, $trnList[5]->PU);
                 }
             }
         ?>

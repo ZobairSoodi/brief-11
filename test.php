@@ -154,7 +154,7 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
             <td>SOUS-TOTAL </td>
             <td></td>
             <td></td>
-            <td><?php echo $montantHT  + $calibre; ?></td>
+            <td><?php echo $montantHT ; ?></td>
             <td></td>
             
             <td>0,45</td>

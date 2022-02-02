@@ -10,6 +10,8 @@
 <body>
 <?php 
 
+
+
 class Tranche{
     public $min;
     public $max;
@@ -31,7 +33,9 @@ $trnList = [
 ];
 
 $tva = 0.14;
-
+$SMALL =22.65;
+$MEDIUM =37.05;
+$LARGE=46.20;
 
 $index1 = $_POST["cons1"];
 $index2 = $_POST["cons2"];
@@ -61,31 +65,64 @@ function show($facture,$PU){
         <td>Montant Taxes</td>
     </thead>
     <tbody>
+        
         <?php
             if($cons <= 150){
                 if($cons <= 100){
                     show($cons, $trnList[0]->PU);
+                    $montantHT =$cons*$trnList[0]->PU;
+
                 }
                 else{
                     show(($cons - 100), $trnList[0]->PU);
                     show($cons, $trnList[1]->PU);
+                    $montantHT =$cons*$trnList[1]->PU;
                 }
             }
             else{
                 if($cons <= 210){
                     show($cons, $trnList[2]->PU);
+                    $montantHT =$cons*$trnList[2]->PU;
                 }
                 elseif($cons <= 310){
                     show($cons, $trnList[3]->PU);
+                    $montantHT =$cons*$trnList[3]->PU;
                 }
                 elseif($cons <= 510){
                     show($cons, $trnList[4]->PU);
+                    $montantHT =$cons*$trnList[4]->PU;
                 }
                 elseif($cons <= 310){
                     show($cons, $trnList[5]->PU);
+                    $montantHT =$cons*$trnList[5]->PU;
                 }
             }
+            $cal = $_POST["cal"];
+            if($cal ="small"){
+               
+                $montantHT += $SMALL;
+            }
+                elseif ($cal ="medium"){
+                   
+                   $montantHT += $MEDIUM ;
+                  
+                }
+                else{
+                    
+                    $montantHT += $LARGE;  
+                }
+            
+                echo "<tr> <td>REDEVANCE FIXE ELECTRICITE</td>  
+                <td> $SMALL </td > <td>الكھرباء ثابتة إ </td></tr>";
+                echo "<tr>
+                        <td colspan='3' class='th'>TAXES POUR LE COMPTE DE L’ETAT</td>
+                        <td colspan='4' class='th' style='text-align:right;' >الرسوم المؤداة لفائدة الدولة</td>
+                    </tr>";
         ?>
+    
+
+
+
     </tbody>
 </table>
 </body>

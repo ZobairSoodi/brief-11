@@ -1,0 +1,19 @@
+table{
+    margin-left: 3%;
+ 
+    width: 200vh;
+    height: 80vh;
+    border-radius: 109px;
+}
+ 
+button{
+    margin-top: 30px;
+    width: 70px;
+    height: auto;
+    background-color: rgb(250, 203, 186);
+border-radius: 9px;
+}
+td{
+    margin-left: 5px;
+    margin-right: 5px;
+}

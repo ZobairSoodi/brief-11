@@ -23,6 +23,8 @@ class Tranche{
     }
 }
 
+$montantTVA = 0;
+
 $trnList = [
     new Tranche(0, 100, 0.794),
     new Tranche(101, 150, 0.883),
@@ -81,12 +83,11 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
                 if($cons <= 100){
                     show(1,$cons, $trnList[0]->PU);
                     $montantHT =$cons*$trnList[0]->PU;
-
                 }
                 else{
-                    show(1,($cons - 100), $trnList[0]->PU);
-                    show(2,$cons, $trnList[1]->PU);
-                    $montantHT =$cons*$trnList[1]->PU;
+                    show(1, 100, $trnList[0]->PU);
+                    show(2,$cons-100, $trnList[1]->PU);
+                    $montantHT = (100 * $trnList[0]->PU) + (($cons - 100) * $trnList[1]->PU);
                 }
             }
             else{
@@ -136,7 +137,7 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
             <td></td>
             <td></td>
            
-            <td><?php echo $montantHT;?></td>
+            <td><?php echo $montantHT * 0.14;?></td>
             <td colspan='4' class='th' style='text-align:right;'> مجموع ض.ق.م </td>
         </tr>
         <tr>
@@ -154,7 +155,7 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
             <td>SOUS-TOTAL </td>
             <td></td>
             <td></td>
-            <td><?php echo $montantHT  + $calibre; ?></td>
+            <td><?php echo $montantHT?></td>
             <td></td>
             
             <td>0,45</td>

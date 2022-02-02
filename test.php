@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link  href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
+ 
+
 <?php 
 
 
@@ -39,6 +43,7 @@ $TVA = "14%";
 $SMALL =22.65;
 $MEDIUM =37.05;
 $LARGE=46.20;
+$TIMBRE = 0.45;
  
 
 $index1 = $_POST["cons1"];
@@ -51,27 +56,27 @@ function show( $nbr,$facture,$PU){
     global $tva;
     $montantTaxes = $montantHT * $tva;
     echo "<tr>
-    <td>Tranche $nbr</td>
+    <td style='font-style: italic; color :gray;'>Tranche $nbr</td>
     <td>$facture</td>
     <td>$PU</td>
     <td>$montantHT</td>
     <td>$TVA</td>
     <td>$montantTaxes</td>
-    <td colspan='4' class='th' style='text-align:right;' >$nbr الشطر</td>
+    <td colspan='4' class='th' style='font-style: italic; color :gray;text-align:right;' >$nbr الشطر</td>
 </tr>";
 }
 $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
 
 ?>
 
-<table class="table" >
+<table class="table" style=" margin-top:50px;" border="-1" id="table">
     <thead>
         <td></td>
-        <td>Facture <br> مفوتر</td>
-        <td>PU <br>س.و</td>
-        <td>Montant HT <br>المبلغ د.إ.ر</td>
-        <td>TAUX TVA <br>ض.ق.م </td>
-        <td>Montant Taxes<br>مبلغ الرسوم </td>
+        <td> مفوتر<br> Facture</td>
+        <td>س.و <br>PU</td>
+        <td>المبلغ د.إ.ر <br> Montant HT </td>
+        <td>ض.ق.م<br> TAUX TVA</td>
+        <td>مبلغ الرسوم<br>Montant Taxes  </td>
         <td></td>
     </thead>
     <tbody>
@@ -131,44 +136,44 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
                     </tr>";
         ?>
         <tr>
-            <td>TVA TOTAL </td>
+            <td style="font-style: italic; color :gray;">TVA TOTAL </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
            
             <td><?php echo $montantHT * 0.14;?></td>
-            <td colspan='4' class='th' style='text-align:right;'> مجموع ض.ق.م </td>
+            <td colspan='4' class='th' style="font-style: italic; color :gray;text-align:right;"> مجموع ض.ق.م </td>
         </tr>
         <tr>
-            <td> TIMBRE </td>
+            <td style="font-style: italic; color :gray;"> TIMBRE </td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             
             <td>0,45</td>
-            <td colspan='4' class='th' style='text-align:right;'> الطابع</td>
+            <td  style="font-style: italic; color :gray;text-align:right;" colspan='4' class='th' > الطابع</td>
         </tr>
     
         <tr>
-            <td>SOUS-TOTAL </td>
+            <th>SOUS-TOTAL </th>
             <td></td>
             <td></td>
             <td><?php echo $montantHT?></td>
             <td></td>
             
-            <td>0,45</td>
-            <td colspan='4' class='th' style='text-align:right;'> الجزئي المجموع</td>
+            <td><?php  echo $montantHT * 0.14 * $TIMBRE;  ?></td>
+            <th colspan='4' class='th' style='text-align:right;'> الجزئي المجموع</th>
         </tr>
         <tr>
-            <td>TOTAL ÉLECTRICITÉ </td>
+            <th>TOTAL ÉLECTRICITÉ </th>
             <td></td>
             <td></td>
             <td></td>
+            <td><?php  echo $montantHT * 0.14 * $TIMBRE +  $montantHT ;  ?></td>
             <td></td>
-            <td></td>
-            <td colspan='4' class='th' style='text-align:right;' >مجموع الكھرباء </td>
+            <th colspan='4' class='th' style='text-align:right;' >مجموع الكھرباء </th>
         </tr>
     
 
@@ -176,5 +181,17 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
 
     </tbody>
 </table>
+<button  style= "margin-left:40%" type="print" id="print">print</button>
+<script >
+    
+    document.getElementById("print"). addEventListener("click", function printData() {
+    var div = document.getElementById("table");
+    newwin = window.open("");
+    newwin.document.write(div.outerHTML);
+    newwin.print();
+    newwin.close();
+  });
+  printData();
+</script>
 </body>
 </html>

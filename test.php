@@ -46,12 +46,14 @@ function show($facture,$PU){
     global $tva;
     $montantTaxes = $montantHT * $tva;
     echo "<tr>
-                <td>$facture</td>
-                <td>$PU</td>
-                <td>$montantHT</td>
-                <td>$tva</td>
-                <td>$montantTaxes</td>
-            </tr>";
+    <td>Tranche $nbr</td>
+    <td>$facture</td>
+    <td>$PU</td>
+    <td>$montantHT</td>
+    <td>$tva</td>
+    <td>$montantTaxes</td>
+    <td>$nbr الشطر</td>
+</tr>";
 }
 
 ?>

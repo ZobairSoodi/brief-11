@@ -1,0 +1,57 @@
+                                             PHP Algorithme 
+
+Variables : consumation:int,total_initial,total_final,TVA: float
+            caliber:int,total: float
+    begin
+    if (consumation <= 150)
+        begin
+        if (consumation <= 100)
+            begin
+            total_initial = consumation*0.794;
+            end
+        else
+            begin
+            total_initial =  (100*0.794) + (consumation - 100) * 0.883;
+            end
+        end
+    else
+       begin
+        if(consumation <= 210 )
+            begin
+                total_initial = consumation * 0,9451 ;
+            end
+            else if(consumation <= 310)
+            begin
+                total_initial = (210 * 0,9451) + (consumation -210)* 1,0489;
+            end
+            else if (consumation <= 510)
+                begin
+                total_initial = (210 * 0,9451) + (100 * 1,0489 ) + (consumation - 310)* 1.2915;
+                end
+           else
+                begin
+                   total_initial = (210 * 0,9451) + (100 * 1,0489 ) + (200 * 1.2915)+ (consumation-510)*1.4975;
+                end
+     end
+
+    if (caliber between 5 and 10)
+        begin
+        total = total_initial + 22.65;
+        end
+    elseif (aliber between 15 and 20)
+    begin
+       total = total_initial + 37.05;
+    end   
+    elseif (aliber >30)
+     begin
+     total = total_initial + 46.20;
+     end
+
+
+
+
+
+
+
+
+           

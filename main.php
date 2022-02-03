@@ -120,7 +120,7 @@
         </thead>
         <tbody>
             <tr>
-                <td class="th" colspan="3" style="">CONSOMMATION ELECTRICITE</td>
+                <td class="th" colspan="3" >CONSOMMATION ELECTRICITE</td>
                 <td class='th' colspan="4" style="text-align:right;">إستھلاك الكھرباء </td>
             </tr>
             <?php 

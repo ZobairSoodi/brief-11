@@ -19,6 +19,7 @@ table td{
     font-weight: 500;
     padding: 10px 40px;
 }
+
 form{
     display: flex;
     align-items: center;
@@ -46,3 +47,4 @@ form{
 #radio_div input{
     margin-left: 20px;
 }
+

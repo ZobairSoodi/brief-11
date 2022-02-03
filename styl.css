@@ -1,8 +1,9 @@
 body{
-    background-image: url(https://media.istockphoto.com/vectors/vector-realistic-isolated-neon-sign-of-electricity-frame-logo-for-vector-id1047175234?k=20&m=1047175234&s=612x612&w=0&h=0G-G4TTf2DQ2wtPpR6v_frwmtlREH8Lh7-K8ELoDDF4=)  no-repeat;
     width: 100%;
     height: 100%;
-    padding: 0 10px;
+    padding: 0;
+    margin-top: 0%;
+    margin-left: 0%;
 }
 table{
  
@@ -15,10 +16,42 @@ button{
     margin-top: 30px;
     width: 70px;
     height: auto;
-    background-color: rgb(250, 203, 186);
+    background-color: #4e797c7a;
 border-radius: 9px;
 }
 td{
     margin-left: 5px;
     margin-right: 5px;
+}
+nav{
+    background-color: #4E797C;
+}
+form {
+    border-radius: 19px;
+    margin-top: 200px ;
+    background-color: #4E797C;
+    padding: 40px ;
+   margin-left: 50vh;
+   margin-right: 60vh;
+}
+
+input[type=text]{
+     padding: 10px;
+    border-radius: 19px;
+}
+input[type=radio]{
+    margin-left: 100px;
+  
+}
+input[type=submit]{
+    margin-top: 30px;
+    margin-left: 40%;
+    width: 70px;
+    height: auto;
+    background-color:#b8e1e4;
+border-radius: 9px;
+}
+span{
+    font-size: 20px;
+    font-style: bold;
 }

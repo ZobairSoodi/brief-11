@@ -73,9 +73,9 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
 <table  style=" margin-top:50px;" border="-1" id="table">
     <thead class="table">
         <tr >
-            <td  colspan='4' >Ancien Andex :<?php echo $index1?></td>
-            <td >Novel Andex : <?php echo$index2  ?></td>
-            <td style='text-align:right;'>Consommation : <?php echo $cons ?></td>
+            <td  colspan='4' > <span> Andex :</span><?php echo $index1?></td>
+            <td > <span> Andex :</span> <?php echo $index2  ?></td>
+            <td style='text-align:right;'> <span>Consommation : </span><?php echo $cons ?> Kwh</td>
         </tr>
         <td></td>
         <td> مفوتر<br> Facture</td>

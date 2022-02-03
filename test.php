@@ -73,8 +73,8 @@ $calc = array("smallCalibr"=>22.65,"mediumCalibr"=>37.05,"largeCalibr"=>46.20);
 <table  style=" margin-top:50px;" border="-1" id="table">
     <thead class="table">
         <tr >
-            <td  colspan='4' > <span> Andex :</span><?php echo $index1?></td>
-            <td > <span> Andex :</span> <?php echo $index2  ?></td>
+            <td  colspan='4' > <span> Ancien Index:</span><?php echo $index1?></td>
+            <td > <span> Novel Index :</span> <?php echo $index2  ?></td>
             <td style='text-align:right;'> <span>Consommation : </span><?php echo $cons ?> Kwh</td>
         </tr>
         <td></td>
